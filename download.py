@@ -11,7 +11,7 @@ def findissn(tit):
 		x.append(tit[-21:-12])
 		x.append(tit[-10:-1])
 	else:
-		x.append(tit[:-13])
+		x.append(tit[:-12])
 		x.append(tit[-10:-1])
 	return x
 
@@ -28,8 +28,8 @@ reader = csv.DictReader(csvfile)
 for row in reader:
 	jt.append(row[z[0]])
 	je.append(row[z[1]])
-	ji.append(row[z[2]])
-	ju.append(row[z[3]])
+	ju.append(row[z[2]])
+	ji.append(row[z[3]])
 	jd.append(row[z[4]])
 a=fd.parse("https://doaj.org/feed")
 y=a['items']
