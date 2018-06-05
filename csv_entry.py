@@ -30,8 +30,9 @@ for row in reader:
     #language=row[z[11]]
     #date=row[z[12]]
     #sunject=row[z[13]]
+    date=row[z[12]]
 
-    cur.execute("insert into doaj values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)",(row[z[0]],row[z[1]],row[z[2]],row[z[3]],row[z[4]],row[z[5]],row[z[6]],row[z[7]],row[z[8]],row[z[9]],row[z[10]],row[z[11]],row[z[12]],row[z[13]],)) 
+    cur.execute("insert into doaj values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)",(row[z[0]],row[z[1]],row[z[2]],row[z[3]],row[z[4]],row[z[5]],row[z[6]],row[z[7]],row[z[8]],row[z[9]],row[z[10]],row[z[11]],date[0:10],row[z[13]],)) 
           
 csvfile.close()
 cur.close()
