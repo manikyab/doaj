@@ -1,6 +1,13 @@
 import MySQLdb as sql
 import csv 
 import urllib.request
+def quotes(row):
+	for i in z:
+		if "'" in row[i]:
+			temp=row[i]
+			tem=temp.index("'")
+			row[i]=temp[:tem]+"'"+temp[tem:]
+	return row
 
 
 conn=sql.connect('localhost','root','','journal')
@@ -15,12 +22,7 @@ reader = csv.DictReader(csvfile) #iterating line by line from the data.csv
 flag=0
 
 for row in reader:
-	for i in z:
-		if "'" in row[i]:
-			temp=row[i]
-			tem=temp.index("'")
-			row[i]=temp[:tem]+"'"+temp[tem:]
-    
+	row=quotes(row)    
     #title=row[z[0]]
     #eissn=row[z[1]]
     #url=row[z[2]]
@@ -35,8 +37,8 @@ for row in reader:
     #language=row[z[11]]
     #date=row[z[12]]
     #sunject=row[z[13]]
-    date=row[z[12]]
-    query = "insert into doaj values('"+row[z[0]]+"','"+row[z[1]]+"','"+row[z[2]]+"','"+row[z[3]]+"','"+row[z[4]]+"','"+row[z[5]]+"','"+row[z[6]]+"','"+row[z[7]]+"','"+row[z[8]]+"','"+row[z[9]]+"','"+row[z[10]]+"','"+row[z[11]]+"','"+date[0:10]+"','"+row[z[13]]+"')"
+	date=row[z[12]]
+	query = "insert into doaj values('"+row[z[0]]+"','"+row[z[1]]+"','"+row[z[2]]+"','"+row[z[3]]+"','"+row[z[4]]+"','"+row[z[5]]+"','"+row[z[6]]+"','"+row[z[7]]+"','"+row[z[8]]+"','"+row[z[9]]+"','"+row[z[10]]+"','"+row[z[11]]+"','"+date[0:10]+"','"+row[z[13]]+"')"
     query=query.encode("utf8")
     print (query)
     cur.execute(query) 
