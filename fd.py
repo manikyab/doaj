@@ -1,3 +1,5 @@
+#for python 2.7 edit for python 3
+
 import feedparser as fd
 import MySQLdb as sql
 a=fd.parse("https://doaj.org/feed")
