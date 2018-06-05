@@ -17,7 +17,7 @@ def findissn(tit):
 
 os.remove("data.csv")
 urllib.request.urlretrieve ("https://doaj.org/csv", "data.csv")
-z=['Journal title','Journal EISSN (online version)','Journal URL','Journal ISSN (print version)','Added on Date']
+j=['Journal title','Journal EISSN (online version)','Journal URL','Journal ISSN (print version)','Added on Date']
 jt=[]
 je=[]
 ji=[]
@@ -26,11 +26,11 @@ jd=[]
 csvfile=open('doaj_20180604_0530_utf8.csv','rb')
 reader = csv.DictReader(csvfile)
 for row in reader:
-	jt.append(row[z[0]])
-	je.append(row[z[1]])
-	ju.append(row[z[2]])
-	ji.append(row[z[3]])
-	jd.append(row[z[4]])
+	jt.append(row[j[0]])
+	je.append(row[j[1]])
+	ju.append(row[j[2]])
+	ji.append(row[j[3]])
+	jd.append(row[j[4]])
 a=fd.parse("https://doaj.org/feed")
 y=a['items']
 new=dict()
