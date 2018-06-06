@@ -7,7 +7,7 @@ def quotes(row):
     for i in z:
         if "'" in row[i]:
             temp=row[i]
-            temp=temp.index("'")
+            tem=temp.index("'")
             row[i]=temp[:tem]+"'"+temp[tem:]
     return row
 
