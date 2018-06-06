@@ -5,10 +5,14 @@ import urllib.request
 
 def quotes(row):
     for i in z:
-        if "'" in row[i]:
-            temp=row[i]
-            tem=temp.index("'")
-            row[i]=temp[:tem]+"'"+temp[tem:]
+        c=row[i].count("'")
+        if c!=0:
+            temp=row[i].split("'")
+            emp=temp[0]
+            for j in temp[1:]:
+                emp=emp+"''"
+                emp=emp+j
+            row[i]=emp
     return row
 
     
