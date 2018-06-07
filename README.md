@@ -14,3 +14,5 @@ os
 
 http://mrbool.com/how-to-create-your-own-search-engine-with-php-and-mysql/32733
 
+http://road.issn.org/en/contenu/pubmed-centralr-pmc#.WxjTQmMzZuQ (journal metadata)
+
