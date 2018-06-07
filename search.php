@@ -13,7 +13,7 @@ else
 	}
 	else
 	{
-		echo "you searched for <b> $input </b> <hr size='1'><br>"
+		echo "you searched for <b> $input </b> <hr size='1'><br>";
 		$host="192.168.0.78";
 		$user="python";
 		$pass="python";
