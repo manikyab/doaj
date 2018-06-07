@@ -38,7 +38,7 @@ else
 				$construct .="(OR ISSN LIKE '%$search_each%' OR EISSN LIKE '%$search_each%' OR Keywords LIKE '%$search_each%' OR Subjects LIKE '%$search_each%' OR Publisher LIKE '%$search_each%')";
 			}
 		}	*/
-		$construct= "SELECT * FROM doaj WHERE (Title LIKE '%$search_each%' OR ISSN LIKE '%$search_each%' OR EISSN LIKE '%$search_each%' OR Keywords LIKE '%$search_each%' OR Subjects LIKE '%$search_each%' OR Publisher LIKE '%$search_each%')";
+		$construct= "SELECT * FROM doaj WHERE (Title LIKE '%$input%' OR ISSN LIKE '%$input%' OR EISSN LIKE '%$input%' OR Keywords LIKE '%$input%' OR Subjects LIKE '%$input%' OR Publisher LIKE '%$input%')";
 		$res=mysqli_query($conn, $construct);
 		$num=mysqli_num_rows($res);
 		if($num==0)
@@ -47,19 +47,19 @@ else
 		}
 		else
 		{
-			echo "$num results found";
+			echo "$num results found <br><br><br>";
 			while($rows=mysqli_fetch_assoc($res))
 			{
-				#$title=$row ['Title'];
-				#$url=$row ['URL'];
-				#$iisn=$row ['IsSN'];
-				#$eissn=$row ['EISSN'];
-				#$date=$row ['Add_Date'];
-				#$sub=$row ['Subjects'];
-				#$pub=$row ['Publishers'];
-				#$key=$row ['Keywords'];
-				#echo "<a href='$url'> <b> $title </b> </a> <br> <a href='$url'> $url </a> <br> $key <br> $issn <br> $eissn <br> $sub <br> $pub";
-				printf("%s %s", $row["Title"],$row["URL"]);
+				$title=$rows ['Title'];
+				$url=$rows ['URL'];
+				$issn=$rows ['ISSN'];
+				$eissn=$rows ['EISSN'];
+				$date=$rows ['Add_Date'];
+				$sub=$rows ['Subjects'];
+				$pub=$rows ['Publisher'];
+				$key=$rows ['Keywords'];
+				echo "<a href='$url'> <b> $title </b> </a> <br> <a href='$url'> $url </a> <br>keywords:- $key <br>ISSN:- $issn <br>EISSN:- $eissn <br>Subject:- $sub <br>Publisher:- $pub<br><br>";
+				#printf("%s %s", $rows["Title"],$rows["URL"]);
 			}
 		}
 	}
