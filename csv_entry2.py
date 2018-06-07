@@ -27,7 +27,7 @@ z=['Journal title','Journal EISSN (online version)','Journal URL','Alternative t
 csvfile = open('data.csv',encoding="utf8") #open the file with binary encoding
 	
 reader = csv.DictReader(csvfile) #iterating line by line from the data.csv
-flag=0
+
 
 for row in reader:
     
@@ -50,13 +50,13 @@ for row in reader:
     date=row[z[13]]
     query = "insert into doaj values('"+row[z[0]]+"','"+row[z[1]]+"','"+row[z[2]]+"','"+row[z[3]]+"','"+row[z[4]]+"','"+row[z[5]]+"','"+row[z[6]]+"','"+row[z[7]]+"','"+row[z[8]]+"','"+row[z[9]]+"','"+row[z[10]]+"','"+row[z[11]]+"','"+row[z[12]]+"','"+date[0:10]+"','"+row[z[14]]+"')"
     query=query.encode("utf8")
-    print (query)
+    
     cur.execute(query) 
     conn.commit()
-    flag=flag+1
-    print (flag)
-    if flag==15:
-        break
+    
+   
+    
+        
 csvfile.close()
 cur.close()
 conn.close()
