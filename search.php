@@ -13,7 +13,7 @@ else
 	}
 	else
 	{
-		echo "you searched for <b> $input </b> <hr size='1'><br>";
+		echo "you searched for <b> $input </b> <hr size='1'><br>"
 		$host="192.168.0.78";
 		$user="python";
 		$pass="python";
@@ -50,15 +50,16 @@ else
 			echo "$num results found";
 			while($rows=mysqli_fetch_assoc($res))
 			{
-				$title=$row ['Title'];
-				$url=$row ['URL'];
-				$iisn=$row ['IISN'];
-				$eissn=$row ['EISSN'];
-				$date=$row ['Add_Date'];
-				$sub=$row ['Subjects'];
-				$pub=$row ['Publishers'];
-				$key=$row ['Keywords'];
-				echo "<a href='$url'> <b> $title </b> </a> <br> <a href='$url'> $url </a> <br> $key <br> $issn <br> $eissn <br> $sub <br> $pub";
+				#$title=$row ['Title'];
+				#url=$row ['URL'];
+				#$iisn=$row ['IISN'];
+				#$eissn=$row ['EISSN'];
+				#$date=$row ['Add_Date'];
+				#$sub=$row ['Subjects'];
+				#$pub=$row ['Publishers'];
+				#$key=$row ['Keywords'];
+				#echo "<a href='$url'> <b> $title </b> </a> <br> <a href='$url'> $url </a> <br> $key <br> $issn <br> $eissn <br> $sub <br> $pub";
+				printf("%s %s", $row["Title"],$row["URL"]);
 			}
 		}
 	}
