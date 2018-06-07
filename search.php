@@ -51,8 +51,8 @@ else
 			while($rows=mysqli_fetch_assoc($res))
 			{
 				#$title=$row ['Title'];
-				#url=$row ['URL'];
-				#$iisn=$row ['IISN'];
+				#$url=$row ['URL'];
+				#$iisn=$row ['IsSN'];
 				#$eissn=$row ['EISSN'];
 				#$date=$row ['Add_Date'];
 				#$sub=$row ['Subjects'];
