@@ -13,7 +13,7 @@ else
 	}
 	else
 	{
-		echo "you searched for <b> $input </b> <hr size='1'><br>"
+		echo "you searched for <b> $input </b> <hr size='1'><br>";
 		$host="192.168.0.78";
 		$user="python";
 		$pass="python";
@@ -25,7 +25,7 @@ else
 		}
 		$search_explode=explode(" ", $input);
 		$x=0;
-		foreach ($search_explode as $search_each) 
+		/*foreach ($search_explode as $search_each) 
 		{
 			$x++;
 			$construct="";
@@ -37,8 +37,8 @@ else
 			{
 				$construct .="(OR ISSN LIKE '%$search_each%' OR EISSN LIKE '%$search_each%' OR Keywords LIKE '%$search_each%' OR Subjects LIKE '%$search_each%' OR Publisher LIKE '%$search_each%')";
 			}
-		}	
-		$construct="SELECT * FROM doaj WHERE $construct";
+		}	*/
+		$construct= "SELECT * FROM doaj WHERE (Title LIKE '%$search_each%' OR ISSN LIKE '%$search_each%' OR EISSN LIKE '%$search_each%' OR Keywords LIKE '%$search_each%' OR Subjects LIKE '%$search_each%' OR Publisher LIKE '%$search_each%')";
 		$res=mysqli_query($conn, $construct);
 		$num=mysqli_num_rows($res);
 		if($num==0)
