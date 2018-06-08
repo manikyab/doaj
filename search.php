@@ -23,9 +23,9 @@ else
 		{
     		die("Connection failed: " . mysqli_connect_error());
 		}
-		$search_explode=explode(" ", $input);
+		/*$search_explode=explode(" ", $input);
 		$x=0;
-		/*foreach ($search_explode as $search_each) 
+		foreach ($search_explode as $search_each) 
 		{
 			$x++;
 			$construct="";
