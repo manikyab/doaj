@@ -61,7 +61,7 @@ else
 				$iss=$rows ['issue'];
 				$pdf=$rows ['pdf_link'];
 				$lim=substr($sum, 0, 250);
-				echo "<a href='$link'> <b> $title </b> </a> <br> <a href='$link'> $link </a> <br><a href='$jlink'><b>Journal:- $jtitle </b></a> <br>Author:- $author &nbsp&nbsp&nbsp Volume:- $vol &nbsp&nbsp&nbsp Issue:- $iss<br>Summary:- $lim....<br><a href='$pfd'>Click here</a>for PDF <br><br>";
+				echo "<a href='$link'> <b> $title </b> </a> <br> <a href='$link'> $link </a> <br><a href='$jlink'><b>Journal:- $jtitle </b></a> <br>Author:- $author &nbsp&nbsp&nbsp Volume:- $vol &nbsp&nbsp&nbsp Issue:- $iss<br>Summary:- $lim....<br><a href='$pdf'>Click here</a>for PDF <br><br>";
 			}
 		}
 	}
