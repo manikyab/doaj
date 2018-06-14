@@ -56,7 +56,8 @@ else
 				$jtitle=$rows ['j_title'];
 				$author=$rows ['author'];
 				$sum=$rows ['summary'];
-				echo "<a href='$link'> <b> $title </b> </a> <br> <a href='$link'> $link </a> <br>Journal:- $j_title <br>Author:- $author <br>Summary <br> $sum <br><br>";
+				$lim=substr($sum, 0 ,200);
+				echo "<a href='$link'> <b> $title </b> </a> <br> <a href='$link'> $link </a> <br>Journal:- $jtitle &nbsp&nbsp&nbsp Author:- $author <br>Summary:- $lim...... <br><br>";
 				#printf("%s %s", $rows["Title"],$rows["URL"]);
 			}
 		}
