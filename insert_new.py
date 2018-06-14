@@ -26,7 +26,7 @@ def vol(li,q1,q2,flag):
     f=c.cssselect("a.file") #PDF link
     try:
         z=d[0].text_content() #volume and issue data
-    finally:
+    except:
         d=c.cssselect("h3")
         z=d[0].text_content()
     v=z[4:z.index(',')] #volume
