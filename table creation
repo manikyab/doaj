@@ -1,5 +1,5 @@
 create table Journal(Title varchar(500),EISSN varchar(520),URL varchar(700),Alt_Title varchar(500),ISSN varchar(520),Publisher varchar(500),Institution varchar(500),Host varchar(500),Country varchar(500),Text_Formats varchar(500),Keywords varchar(500),Text_Language varchar(500),Date_Open varchar(500),Add_Date varchar(500),Subjects varchar(500),Visit int DEFAULT(0));
 
-create table article(lang varchar(100),j_title varchar(500),j_link varchar(500),title varchar(500), link varchar(500),summary varchar(5000), pub_date varchar(100), author varchar(500),page varchar(50),volume varchar(50),issue varchar(50),pdf_link varchar(500));
+create table article(lang varchar(100),j_title varchar(500),j_link varchar(500),title varchar(500), link varchar(500),summary varchar(5000), pubDate varchar(100), author varchar(500),page varchar(50),volume varchar(50),issue varchar(50),pdf_link varchar(500));
 
 
