@@ -56,7 +56,7 @@ else
 		}
 		else
 		{
-			echo "$num results found for articles <br><br>";
+			echo "$num articles found<br><br>";
 			while($rows=mysqli_fetch_assoc($res))
 			{
 				$title=$rows ['title'];
@@ -71,10 +71,10 @@ else
 				$lim=substr($sum, 0, 250);
 				if($pdf=="")
 				{
-					echo "<a href='$link'> <b> $title </b> </a>  <br><a href='$jlink'><b>Journal:- $jtitle </b></a> <br>Author:- $author &nbsp&nbsp&nbsp Volume:- $vol &nbsp&nbsp&nbsp Issue:- $iss<br>Summary:- $lim....<br> PDF link not available <br><br><br>";
+					echo "<a href='$link'> <b> $title </b> </a>  <br><a href='$jlink'><b>Journal:- $jtitle </b></a> <br>Author:- $author &nbsp&nbsp&nbsp Volume:- $vol &nbsp&nbsp&nbsp Issue:- $iss<br>Summary:- $lim....<br> PDF link not available <br><br><br><br>";
 				}
 				else{
-					echo "<a href='$link'> <b> $title </b> </a>  <br><a href='$jlink'><b>Journal:- $jtitle </b></a> <br>Author:- $author &nbsp&nbsp&nbsp Volume:- $vol &nbsp&nbsp&nbsp Issue:- $iss<br>Summary:- $lim....<br><a href='$pdf'>Click here</a>for PDF <br><br><br>";
+					echo "<a href='$link'> <b> $title </b> </a>  <br><a href='$jlink'><b>Journal:- $jtitle </b></a> <br>Author:- $author &nbsp&nbsp&nbsp Volume:- $vol &nbsp&nbsp&nbsp Issue:- $iss<br>Summary:- $lim....<br><a href='$pdf'>Click here</a>for PDF <br><br><br><br>";
 				}
 			}
 				
@@ -86,7 +86,7 @@ else
 		}
 		else
 		{
-			echo "$num1 results found journals <br><br>";
+			echo "$num1 journals found<br><br>";
 			while($rows1=mysqli_fetch_assoc($res1))
 			{
 				$title=$rows1 ['Title'];
@@ -97,7 +97,7 @@ else
 				$sub=$rows1 ['Subjects'];
 				$pub=$rows1 ['Publisher'];
 				$key=$rows1 ['Keywords'];
-				echo "<a href='$url'> <b> $title </b> </a> <br> <a href='$url'> $url </a> <br>keywords:- $key <br>ISSN:- $issn <br>EISSN:- $eissn <br>Subject:- $sub <br>Publisher:- $pub<br><br>";
+				echo "<a href='$url'> <b> $title </b> </a> <br> <a href='$url'> $url </a> <br>keywords:- $key <br>ISSN:- $issn <br>EISSN:- $eissn <br>Subject:- $sub <br>Publisher:- $pub<br><br><br><br>";
 				#printf("%s %s", $rows["Title"],$rows["URL"]);
 			}
 		}
