@@ -1,7 +1,6 @@
 import feedparser as fd
 import MySQLdb as sql
 from lxml.html import parse
-import sys
 def quotes(row,z):
     for i in z:
         c=row[i].count("'")
@@ -25,12 +24,13 @@ def vol(li,q1,q2,flag):
     e=c.cssselect("td.tocPages") #Pages no
     try:
         z=d[0].text_content() #volume and issue data
-        if z[0:5]!="VOL ":
-            raise Exception("")
+        #if z[0:5]!="VOL " or z[0:5]!="Vol ":
+            #raise Exception("")
             
     except:
         d=c.cssselect("h3")
         z=d[0].text_content()
+    #print(z)
     v=z[4:z.index(',')] #volume
     n=z[z.index(',')+5:z.index('(')-1] #issue
     x=c.cssselect("table.tocArticle")
@@ -48,11 +48,20 @@ def vol(li,q1,q2,flag):
 conn=sql.connect("192.168.1.48","python","python","journal")
 cur=conn.cursor()
 flag=0
-link=sys.argv[1]
+cur.execute("select * from link") 
+z=cur.fetchall()
+link=z[-1][0]
+if link[-2:]=="\n":
+    link=link[:-2]
+#link=input("Link of RSS feed:")
+#link=sys.argv[1]
+#print (link)
 a=fd.parse(link)
 y=a['items']
+#print (y)
 z=['title','link','summary','published','author']
 x=list(y[0].keys())
+#print ()
 temp=list(set(z) & set(x))
 lang=a['feed']['language']
 j_title=a['feed']['title']
