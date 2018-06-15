@@ -6,23 +6,58 @@
 			{
 				background-image: url(back.jpg); 
 				background-position: left top;
+				padding: 10px;
+
 			}
-			
+			.searchTerm {
+  
+  width: 35%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+#rad{
+	font-size: 25px;
+}
+#submit{
+	size:55px;
+}
+#search{
+	width: 130px;
+	height: 35px;
+	font-size: 20px;
+}
+#rss{
+	font-size: 25px;
+	color: grey;
+}
 		</style>
+
 	</head>
 	<body>
 		<div id='e1'>
-			<center>
-				<br><br><br><br>
-				<h1>
-					Search for Articles
-				</h1>
-				<form method="POST" action="display.php" >
-					<input type="text" name="in"><br><br>
-					<input type="submit" name="submit" value="Search"><br>
-				</form>
-				Submit your rss link <a href="rss.html"> here </a>
-			</center>
+			<CENTER><br><br><br><br><br><br><br>
+				<img src="front.png" alt="SEARCH LOGO"><br><br>
+
+				
+				<form method="POST" id="rad" >
+					<input type="text"  class="searchTerm" name="in"><br><br>
+					<input type="radio" name="Search"  onclick="document.getElementById('rad').action='display1.php';" >Articles
+					<input type="radio" name="Search" onclick="document.getElementById('rad').action='search.php';" >Journals
+					<input type="radio"  name="Search" onclick="document.getElementById('rad').action='display.php';" >Both<br><br>
+					<input type="submit" name="submit" value="Search" id="search"><br>
+				</form >
+				<div id="rss">Submit your rss link <a href="rss.html"> here </a>
+				</div>
+			</CENTER>
 		</div>
 		<br><br>
 		
