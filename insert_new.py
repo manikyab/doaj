@@ -23,7 +23,6 @@ def vol(li,q1,q2,flag):
     c=parse(lin).getroot()
     d=c.cssselect("h2") #vol and Issue
     e=c.cssselect("td.tocPages") #Pages no
-    f=c.cssselect("a.file") #PDF link
     try:
         z=d[0].text_content() #volume and issue data
     except:
@@ -31,8 +30,14 @@ def vol(li,q1,q2,flag):
         z=d[0].text_content()
     v=z[4:z.index(',')] #volume
     n=z[z.index(',')+5:z.index('(')-1] #issue
-    q1+='page,volume,issue,pdf_link,' #query creation
-    q2+=e[flag].text_content()+"','"+v+"','"+n+"','"+f[flag].get('href')+"','" #query creation
+    x=c.cssselect("table.tocArticle")
+    y=x[flag].cssselect("a")
+    if len(y)==2:
+        q1+='page,volume,issue,pdf_link,' #query creation
+        q2+=e[flag].text_content()+"','"+v+"','"+n+"','"+y[1].get('href')+"','" #query creation
+    else:
+        q1+='page,volume,issue,' #query creation
+        q2+=e[flag].text_content()+"','"+v+"','"+n+"','" #query creation
     q1=q1[:-1]
     q2=q2[:-2]
     query=q1+q2+")"
