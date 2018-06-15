@@ -25,6 +25,9 @@ def vol(li,q1,q2,flag):
     e=c.cssselect("td.tocPages") #Pages no
     try:
         z=d[0].text_content() #volume and issue data
+        if z[0:5]!="VOL ":
+            raise Exception("")
+            
     except:
         d=c.cssselect("h3")
         z=d[0].text_content()
