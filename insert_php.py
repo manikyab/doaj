@@ -1,6 +1,7 @@
 import feedparser as fd
 import MySQLdb as sql
 from lxml.html import parse
+
 def quotes(row,z):
     for i in z:
         c=row[i].count("'")
@@ -12,24 +13,44 @@ def quotes(row,z):
                 emp=emp+j
             row[i]=emp
     return row
-
+def voliss(a):
+    try:
+        b=a.cssselect("h2")
+        #print(b)
+        flag=0
+        for i in range(len(b)):
+            x=b[i].text_content()
+            #print (x)
+            if x[:4]=="VOL " or x[:4]=="Vol ":
+                return x
+        if flag==0:
+            raise Exception("")
+    except:
+        b=a.cssselect("h3")
+        print(b)
+        for i in range(len(b)):
+            x=b[i].text_content()
+            #print(x)
+            if x[:4]=="VOL " or x[:4]=="Vol ":
+                return x
 def vol(li,q1,q2,flag):
     #print(li)
     a=parse(li).getroot()
     b=a.cssselect("a")
-    lin=b[21].get('href')
+    fl=0
+    for i in b:
+        x=i.text_content()
+        if x[:4]=="VOL " or x[:4]=="Vol ":
+            links=fl
+        #print (fl)
+        #print (x)
+        fl+=1
+    lin=b[links].get('href')
     #print(lin)
     c=parse(lin).getroot()
     d=c.cssselect("h2") #vol and Issue
     e=c.cssselect("td.tocPages") #Pages no
-    try:
-        z=d[0].text_content() #volume and issue data
-        #if z[0:5]!="VOL " or z[0:5]!="Vol ":
-            #raise Exception("")
-            
-    except:
-        d=c.cssselect("h3")
-        z=d[0].text_content()
+    z=voliss(c)
     #print(z)
     v=z[4:z.index(',')] #volume
     n=z[z.index(',')+5:z.index('(')-1] #issue
@@ -83,4 +104,4 @@ for i in y:
     conn.commit()
 cur.close()
 conn.close()
-print (flag+1," entries inserted.")
+print (flag," entries inserted.")
