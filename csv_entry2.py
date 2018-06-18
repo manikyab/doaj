@@ -49,7 +49,7 @@ for row in reader:
     #sunject=row[z[14]]
     date=row[z[13]]
 	#write the query
-    query = "insert into doaj values('"+row[z[0]]+"','"+row[z[1]]+"','"+row[z[2]]+"','"+row[z[3]]+"','"+row[z[4]]+"','"+row[z[5]]+"','"+row[z[6]]+"','"+row[z[7]]+"','"+row[z[8]]+"','"+row[z[9]]+"','"+row[z[10]]+"','"+row[z[11]]+"','"+row[z[12]]+"','"+date[0:10]+"','"+row[z[14]]+"')"
+    query = "insert into journal(Title,EISSN,URL,Alt_Title,ISSN,Publisher,Institution,Host,Country,Text_Formats,Keywords,Text_Language,Date_Open,Add_Date,Subjects) values('"+row[z[0]]+"','"+row[z[1]]+"','"+row[z[2]]+"','"+row[z[3]]+"','"+row[z[4]]+"','"+row[z[5]]+"','"+row[z[6]]+"','"+row[z[7]]+"','"+row[z[8]]+"','"+row[z[9]]+"','"+row[z[10]]+"','"+row[z[11]]+"','"+row[z[12]]+"','"+date[0:10]+"','"+row[z[14]]+"')"
     query=query.encode("utf8")
     #ececute the query
     cur.execute(query) 
