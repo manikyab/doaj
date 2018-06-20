@@ -86,7 +86,7 @@ qd['lang']=a['feed']['language']
 jou=parse(j_link).getroot()
 b=jou.cssselect('a')
 flag=0
-conn=sql.connect('132.148.227.248','journalsrssdb','Allthebest@231','journalsrssdb')
+conn=sql.connect('***********','************','************','**************')
 cur=conn.cursor()
 for i in b:
 	x=i.text_content()
